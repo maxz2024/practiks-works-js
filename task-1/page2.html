@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Задчача 2</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+    <style>
+      body,
+      main,
+      div {
+        margin: 0;
+      }
+      main {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        overflow: auto;
+        flex-direction: column;
+      }
+      .wrapper {
+        width: 600px;
+        height: 200px;
+        display: flex;
+        gap: 100px;
+        justify-content: center;
+        align-items: center;
+      }
+      .square {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+      }
+      .circle {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        border-radius: 100px;
+      }
+      .triangle {
+        width: 0;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 100px solid yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="wrapper">
+        <div class="block1 square"></div>
+        <div class="block2 circle"></div>
+        <div class="block3 triangle"></div>
+      </div>
+    </main>
+    <script>
+      
+
+      const block1 = document.querySelector(".block1");
+      const block2 = document.querySelector(".block2");
+      const block3 = document.querySelector(".block3");
+      const arrFigure = ["square", "circle", "triangle"];
+
+      block1.addEventListener("click", () => {
+        const [typeBlock1, typeBlock2] = [block1.classList[1], block2.classList[1]]
+        block1.style.transition = "all 3s"
+        block1.classList.replace(typeBlock1, typeBlock2)
+        block2.style.transition = "all 3s"
+        block2.classList.replace(typeBlock2, typeBlock1)
+        
+      });
+
+      block2.addEventListener("click", () => {
+        const [typeBlock2, typeBlock3] = [block2.classList[1], block3.classList[1]]
+        block2.style.transition = "all 3s"
+        block2.classList.replace(typeBlock2, typeBlock3)
+        block3.style.transition = "all 3s"
+        block3.classList.replace(typeBlock3, typeBlock2)
+        
+      });
+
+      block3.addEventListener("click", ()=>{
+        const [typeBlock3, typeBlock1] = [block3.classList[1], block1.classList[1]]
+        block3.style.transition = "all 3s"
+        block3.classList.replace(typeBlock3, typeBlock1)
+        block1.style.transition = "all 3s"
+        block1.classList.replace(typeBlock1, typeBlock3)
+        
+      })
+    </script>
+  </body>
+</html>
